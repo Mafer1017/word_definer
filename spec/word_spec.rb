@@ -25,10 +25,11 @@ describe '#Word' do
   end
 
   describe('#==') do
-  it("is the same word if it has the same attributes as another word") do
-    word = Word.new("Blue", nil)
-    word2 = Word.new("Blue", nil)
-    expect(word).to(eq(word2))
+    it("is the same word if it has the same attributes as another word") do
+      word = Word.new("Blue", nil)
+      word2 = Word.new("Blue", nil)
+      expect(word).to(eq(word2))
+    end
   end
 
   describe('.clear') do
@@ -39,6 +40,16 @@ describe '#Word' do
       word2.save()
       Word.clear()
       expect(Word.all).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it("finds a word by id") do
+      word = Word.new("ball", nil)
+      word.save()
+      word2 = Word.new("cloud", nil)
+      word2.save()
+      expect(word.find(word.id)).to(eq(word))
     end
   end
 end
