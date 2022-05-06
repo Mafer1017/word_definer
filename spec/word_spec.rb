@@ -1,5 +1,6 @@
 require 'rspec'
 require 'word'
+require 'pry'
 
 describe '#Word' do
 
@@ -20,6 +21,17 @@ describe '#Word' do
       word2 = Word.new("cat", nil)
       word2.save()
       expect(Word.all).to(eq([word, word2]))
+    end
+  end
+
+  describe('.clear') do
+    it("clears all words") do
+      word = Word.new("frog", nil)
+      word.save()
+      word2 = Word.new("lizard", nil)
+      word2.save()
+      Word.clear()
+      expect(Word.all).to(eq([]))
     end
   end
 end
