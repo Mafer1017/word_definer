@@ -55,10 +55,10 @@ describe '#Word' do
 
   describe('#update') do
     it("updates a word by id") do
-    word = Word.new("boogy", nil)
-    word.save()
-    word.update("booger")
-    expect(word.name).to(eq("booger"))
+    input = Word.new("boogy", nil)
+    input.save()
+    input.update("booger")
+    expect(input.word).to(eq("booger"))
     end
   end
 end
