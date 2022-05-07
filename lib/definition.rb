@@ -33,6 +33,10 @@ class Definition
     @@definitions[self.id] = Definition.new(self.phrase, self.word_id, self.id)
   end
 
+  def delete
+    @@definitions.delete(self.id)
+  end
+
   def self.clear
     @@definitions = {}
   end
