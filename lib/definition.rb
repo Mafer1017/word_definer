@@ -27,6 +27,12 @@ class Definition
     @@definitions[id]
   end
 
+  def update(phrase, word_id)
+    self.phrase = phrase
+    self.word_id = word_id
+    @@definitions[self.id] = Definition.new(self.phrase, self.word_id, self.id)
+  end
+
   def self.clear
     @@definitions = {}
   end
