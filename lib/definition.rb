@@ -15,8 +15,20 @@ class Definition
     (self.phrase() == definition_to_compare.phrase()) && (self.word_id() == definition_to_compare.word_id())
   end
 
+  def self.all
+    @@definitions.values
+  end
+
   def save
     @@definitions[self.id] = Definition.new(self.phrase, self.word_id, self.id)
+  end
+
+  def self.find(id)
+    @@definitions[id]
+  end
+
+  def self.clear
+    @@definitions = {}
   end
 
   def self.find_by_word(wrd_id)
