@@ -72,4 +72,15 @@ describe '#Word' do
       expect(Word.all).to(eq([word2]))
     end
   end
+
+  describe('#definition') do
+    it("returns a word's definition") do
+      Word.clear()
+      word = Word.new("Dog", nil)
+      word.save()
+      definition = Definition.new("An animal that barks", word.id, nil)
+      definition.save()
+      expect(word.definition).to(eq([definition]))
+    end
+  end
 end
