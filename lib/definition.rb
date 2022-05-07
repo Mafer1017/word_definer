@@ -11,6 +11,10 @@ class Definition
     @id = id || @@total_rows += 1
   end
 
+  def ==(definition_to_compare)
+    (self.phrase() == definition_to_compare.phrase()) && (self.word_id() == definition_to_compare.word_id())
+  end
+
   def save
     @@definitions[self.id] = Definition.new(self.phrase, self.word_id, self.id)
   end
