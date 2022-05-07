@@ -14,9 +14,19 @@ describe '#Definition' do
 
   describe('#==') do
     it("is the same definition if it has the same attributes as another definition") do
-      definition = Definition.new("animal that barks", @word.id, nil)
-      definition2 = Definition.new("animal that barks", @word.id, nil)
+      definition = Definition.new("animal that barks.", @word.id, nil)
+      definition2 = Definition.new("animal that barks.", @word.id, nil)
       expect(definition).to(eq(definition2))
+    end
+  end
+
+  describe('.all') do
+    it("returns a list of all definitions") do
+      definition = Definition.new("animal that barks.", @word.id, nil)
+      definition.save()
+      definition2 = Definition.new("animal with fur.", @word.id, nil)
+      definition2.save()
+      expect(Definition.all).to(eq([definition, definition2]))
     end
   end
 end
