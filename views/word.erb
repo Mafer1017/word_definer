@@ -1,4 +1,27 @@
 <h2>Your word: <%= @word.word %></h2>
 
+<h3>Word Definitions</h3>
+<% if @word.definition.any? %>
+    <ul>
+      <% @word.definition.each do |definition| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.word %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no definitions listed for this word yet.</p>
+  <% end %>
+  
+  <h4>Add a definition:</h4>
+
+  <form action="/words/<%= @word.id %>/definitions" method="post">
+  <div class="form-group">
+    <label for="definition_phrase">Definition</label>
+    <input id="definition_phrase" name="definition_phrase" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Add definition</button>
+</form>
+
+
 <p><a href="/words/<%= @word.id %>/edit">Change word</a></p>
+
 <p><a href="/words">Return to word list</a></p>

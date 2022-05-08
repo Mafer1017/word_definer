@@ -12,3 +12,15 @@ describe('create a word path', {:type => :feature}) do
     expect(page).to have_content('dog')
   end
 end
+
+describe('create a definition path', {:type => :feature}) do
+  it('creates a word and then goes to the word page') do
+    Word.clear()
+    word = Word.new("dog", nil)
+    word.save
+    visit("/words/#{word.id}")
+    fill_in('definition_phrase', :with => 'an animal that barks.')
+    click_on('Add definition')
+    expect(page).to have_content('an animal that barks.')
+  end
+end
