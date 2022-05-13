@@ -1,5 +1,5 @@
 <h2>Definition: <%= @definition.phrase %></h2>
-<h3>word: <%= @definition.word.phrase %></h3>
+<h3>word: <%= @definition.word.word %></h3>
 
 <form action="/words/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
@@ -10,10 +10,10 @@
   <button type="submit">Update definition</button>
 </form>
 
-<form action="/definitions/<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
+<form action="/wordsgit /<%= @definition.word.id %>/definitions/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete definition</button>
 </form>
 
-<a href="/definitions/<%= @definition.word.id %>">Back to <%= @definition.word.phrase %></a>
+<a href="/definitions/<%= @definition.word.id %>">Back to <%= @definition.word.word %></a>
