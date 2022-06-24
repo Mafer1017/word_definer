@@ -23,7 +23,7 @@ _This project allows users to input words and add definitions for each word._
 * Navigate to top-level of directory
 * In the main project directory, enter `bundle install` in the terminal to include necessary gems.
 * In your terminal run the command `ruby app.rb` to start a local server.
-* In your web browser, navigate to the url 'localhost:4567' to view and interact with page.
+* In your web browser, navigate to the url `localhost:4567` to view and interact with page.
 
 
 ## Known Bugs
